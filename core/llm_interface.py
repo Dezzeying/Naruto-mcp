@@ -1,9 +1,16 @@
 """
-Naruto RPG Simülasyon Motoru
-
 LLM Interface
 
-Local DeepSeek modelleri ile iletişim katmanı.
+Local büyük dil modelleri ile iletişim katmanı.
+
+Desteklenen sistemler:
+- OpenAI compatible API
+- Ollama
+- llama.cpp server
+- text-generation-webui
+- CLI tabanlı local modeller
+
+Bu sınıf oyun motorunun AI ile tek iletişim noktasıdır.
 """
 
 
@@ -16,32 +23,43 @@ from typing import Any
 import requests
 
 
-
 class LLMInterface:
     """
-    Local LLM bağlantı yöneticisi.
+    Local DeepSeek veya başka bir LLM modeli ile iletişim sağlar.
 
-    Destek:
-    - OpenAI uyumlu API
-    - Ollama
-    - llama.cpp server
-    - text-generation-webui
-    - CLI modeller
+    Oyun motoru bu sınıf üzerinden:
+    - hikaye üretimi
+    - NPC konuşmaları
+    - savaş anlatımı
+    - dünya simülasyonu
+
+    işlemlerini yapar.
     """
-
 
     def __init__(
         self,
         model_path: str,
-        api_base: str = "http://localhost:8000"
+        api_base: str = "http://localhost:8000",
     ) -> None:
+        """
+        Args:
+            model_path:
+                Kullanılan model adı veya dosya yolu.
+
+            api_base:
+                Local LLM API adresi.
+        """
 
         self.model_path = model_path
-
         self.api_base = api_base.rstrip("/")
 
-        self.model_name = "DeepSeek"
+        self.chat_endpoint = (
+            f"{self.api_base}/v1/chat/completions"
+        )
 
+        self.models_endpoint = (
+            f"{self.api_base}/v1/models"
+        )
 
 
     def generate(
@@ -49,68 +67,94 @@ class LLMInterface:
         prompt: str,
         system_message: str,
         temperature: float = 0.7,
-        max_tokens: int = 2048
+        max_tokens: int = 1000,
     ) -> str:
         """
-        LLM'den ham cevap alır.
+        LLM'e normal metin isteği gönderir.
+
+        Öncelik:
+        1. OpenAI uyumlu API
+        2. CLI fallback
+
+        Returns:
+            Ham model cevabı
         """
 
-        # Önce API dene
-
         try:
-
-            response = requests.post(
-                f"{self.api_base}/v1/chat/completions",
-                json={
-                    "model": self.model_name,
-
-                    "messages":
-                    [
-                        {
-                            "role": "system",
-                            "content": system_message
-                        },
-
-                        {
-                            "role": "user",
-                            "content": prompt
-                        }
-                    ],
-
-                    "temperature": temperature,
-
-                    "max_tokens": max_tokens
-                },
-
-                timeout=120
+            return self._api_generate(
+                prompt,
+                system_message,
+                temperature,
+                max_tokens,
             )
-
-
-            response.raise_for_status()
-
-
-            data = response.json()
-
-
-            return (
-                data
-                .get("choices", [{}])[0]
-                .get("message", {})
-                .get("content", "")
-            )
-
 
         except Exception:
 
-            pass
+            return self._cli_generate(
+                prompt
+            )
 
 
+    def _api_generate(
+        self,
+        prompt: str,
+        system_message: str,
+        temperature: float,
+        max_tokens: int,
+    ) -> str:
+        """
+        OpenAI uyumlu API çağrısı yapar.
+        """
 
-        # API yoksa CLI dene
+        payload: dict[str, Any] = {
 
-        return self._generate_cli(
-            prompt,
-            system_message
+            "model":
+                self.model_path,
+
+            "messages":
+            [
+                {
+                    "role":
+                    "system",
+
+                    "content":
+                    system_message,
+                },
+
+                {
+                    "role":
+                    "user",
+
+                    "content":
+                    prompt,
+                }
+            ],
+
+            "temperature":
+                temperature,
+
+            "max_tokens":
+                max_tokens,
+        }
+
+
+        response = requests.post(
+            self.chat_endpoint,
+            json=payload,
+            timeout=120,
+        )
+
+
+        response.raise_for_status()
+
+
+        data = response.json()
+
+
+        return (
+            data["choices"][0]
+            ["message"]
+            ["content"]
         )
 
 
@@ -119,62 +163,57 @@ class LLMInterface:
         self,
         prompt: str,
         system_message: str,
-        output_schema: dict[str, Any]
+        output_schema: dict[str, Any],
     ) -> dict[str, Any]:
         """
-        JSON formatında cevap üretir.
+        JSON formatında cevap ister.
+
+        AI bazen hatalı JSON döndürebileceği için
+        temizleme işlemi yapar.
         """
 
+        schema_prompt = f"""
 
-        schema_text = json.dumps(
-            output_schema,
-            ensure_ascii=False,
-            indent=2
-        )
+Sadece JSON formatında cevap ver.
 
+Beklenen format:
 
-        enhanced_prompt = f"""
-Sadece geçerli JSON döndür.
+{json.dumps(
+    output_schema,
+    indent=2,
+    ensure_ascii=False
+)}
 
-Bu şemaya uy:
-
-{schema_text}
-
-
-İstek:
-
-{prompt}
 """
 
-
         raw = self.generate(
-            enhanced_prompt,
+            prompt + schema_prompt,
             system_message,
-            temperature=0.4
+            temperature=0.4,
         )
 
 
-        return self._parse_json(
+        return self._extract_json(
             raw
         )
 
 
 
-    def ping(self) -> bool:
+    def ping(
+        self
+    ) -> bool:
         """
-        LLM server aktif mi kontrol eder.
+        LLM servisinin çalışıp çalışmadığını kontrol eder.
         """
-
 
         try:
 
             response = requests.get(
-                f"{self.api_base}/v1/models",
-                timeout=5
+                self.api_base,
+                timeout=5,
             )
 
-
-            return response.status_code == 200
+            return response.status_code < 500
 
 
         except Exception:
@@ -183,18 +222,21 @@ Bu şemaya uy:
 
 
 
-    def get_model_info(self) -> dict[str, Any]:
+    def get_model_info(
+        self
+    ) -> dict[str, Any]:
         """
-        Model bilgisi getirir.
+        Model bilgilerini döndürür.
         """
-
 
         try:
 
             response = requests.get(
-                f"{self.api_base}/v1/models",
-                timeout=10
+                self.models_endpoint,
+                timeout=10,
             )
+
+            response.raise_for_status()
 
 
             return response.json()
@@ -202,59 +244,53 @@ Bu şemaya uy:
 
         except Exception:
 
-
             return {
 
                 "model":
-                self.model_name,
+                self.model_path,
 
                 "status":
-                "offline",
+                "unknown",
 
                 "api":
-                self.api_base
+                self.api_base,
             }
 
 
 
-    def _generate_cli(
+    def _cli_generate(
         self,
         prompt: str,
-        system_message: str
     ) -> str:
         """
-        DeepSeek CLI desteği.
-        """
+        API yoksa CLI üzerinden model çalıştırır.
 
+        Örnek:
+        deepseek-cli "prompt"
+        """
 
         try:
 
             result = subprocess.run(
 
                 [
-                    self.model_path,
-
-                    "--system",
-                    system_message,
-
-                    "--prompt",
+                    "deepseek-cli",
                     prompt
-
                 ],
 
                 capture_output=True,
 
                 text=True,
 
-                timeout=120
+                timeout=120,
             )
 
 
             return result.stdout
 
 
-        except Exception as error:
 
+        except Exception as error:
 
             return json.dumps(
                 {
@@ -265,63 +301,74 @@ Bu şemaya uy:
 
 
 
-    def _parse_json(
+    def _extract_json(
         self,
-        text: str
+        text: str,
     ) -> dict[str, Any]:
         """
-        Bozuk JSON cevaplarını temizler.
+        Model çıktısından JSON ayıklar.
+
+        Destek:
+        - direkt JSON
+        - ```json blokları
         """
 
+        cleaned = text.strip()
 
-        text = text.strip()
 
+        if "```json" in cleaned:
 
-        if "```json" in text:
-
-            text = (
-                text
-                .replace("```json", "")
-                .replace("```", "")
+            cleaned = (
+                cleaned
+                .replace(
+                    "```json",
+                    ""
+                )
+                .replace(
+                    "```",
+                    ""
+                )
+                .strip()
             )
 
 
         try:
 
             return json.loads(
-                text
+                cleaned
             )
 
 
         except json.JSONDecodeError:
 
 
-            start = text.find("{")
+            start = cleaned.find("{")
 
-            end = text.rfind("}")
+            end = cleaned.rfind("}")
 
 
-            if start != -1 and end != -1:
+            if (
+                start != -1
+                and end != -1
+            ):
 
                 try:
 
                     return json.loads(
-                        text[start:end + 1]
+                        cleaned[start:end + 1]
                     )
 
-
-                except Exception:
+                except json.JSONDecodeError:
 
                     pass
-
 
 
         return {
 
             "error":
-            "JSON parse edilemedi",
+            "invalid_json",
 
             "raw":
-            text
+            text,
 
         }

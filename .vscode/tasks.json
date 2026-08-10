@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Naruto RPG Auto Git Backup",
+            "type": "shell",
+            "command": "powershell -ExecutionPolicy Bypass -File .vscode/auto_git.ps1",
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

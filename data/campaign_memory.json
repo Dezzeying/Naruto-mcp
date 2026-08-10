@@ -1,0 +1,179 @@
+{
+    "campaign": "Ajisai Hatake Hikayesi",
+
+    "current_chapter": "Takım 8 sonrası gelişim dönemi",
+
+    "events": [
+
+        {
+            "title": "Takım 8'in Oluşumu",
+            "status": "Tamamlandı",
+            "importance": 7,
+
+            "participants": [
+                "Ajisai Hatake",
+                "Mizuki",
+                "Haruto Akimori",
+                "Kurenai Yuhi"
+            ],
+
+            "summary": "Ajisai, Mizuki ve Haruto ile birlikte Takım 8'e dahil oldu. Kurenai takımın liderliğini üstlendi.",
+
+            "effects": [
+                "Takım ilişkileri başladı",
+                "Kurenai Ajisai'nin analiz yeteneğini fark etti"
+            ]
+        },
+
+
+        {
+            "title": "İlk Takım Görevleri",
+            "status": "Tamamlandı",
+            "importance": 6,
+
+            "summary": "Takım 8 temel saha deneyimi kazandı. Ajisai'nin sakin karar verme yapısı ön plana çıktı.",
+
+            "effects": [
+                "Takım uyumu arttı",
+                "Mizuki ve Haruto ile güven gelişti"
+            ]
+        },
+
+
+        {
+            "title": "Saha Deneyimi Görevi",
+            "status": "Tamamlandı",
+            "importance": 6,
+
+            "summary": "Ajisai'nin gözlem yeteneği ve dikkat seviyesi takım tarafından fark edildi.",
+
+            "effects": [
+                "Ajisai takım içinde analiz rolüne yaklaşmaya başladı"
+            ]
+        },
+
+
+        {
+            "title": "Koruma ve Destek Görevi",
+            "status": "Tamamlandı",
+            "importance": 7,
+
+            "summary": "Ajisai'nin sadece kazanmayı değil sivilleri korumayı önemsediği görüldü.",
+
+            "effects": [
+                "Kurenai'nin Ajisai hakkındaki güveni arttı"
+            ]
+        },
+
+
+        {
+            "title": "Haruto Kurtarma Operasyonu",
+            "status": "Tamamlandı",
+            "importance": 8,
+
+            "summary": "Haruto tehlikeli bir durumda kurtarıldı. Ajisai kriz anında soğukkanlı davranarak doğru kararlar aldı.",
+
+            "effects": [
+                "Haruto'nun Ajisai'ye saygısı arttı",
+                "Takım bağı güçlendi"
+            ]
+        },
+
+
+        {
+            "title": "Ikazuchi Geliştirme Süreci",
+            "status": "Devam ediyor",
+            "importance": 8,
+
+            "summary": "Ajisai kendi Raiton tabanlı kişisel tekniği Ikazuchi üzerinde çalışmaya başladı.",
+
+            "effects": [
+                "Chakra kontrolü gelişti",
+                "Yeni teknik varyasyonu Gekisen ortaya çıktı"
+            ]
+        },
+
+
+        {
+            "title": "Ikazuchi: Gekisen Gelişimi",
+            "status": "Devam ediyor",
+            "importance": 9,
+
+            "summary": "Ajisai, Raiton chakrasını ince ve keskin bir hatta yönlendiren Gekisen tekniğini geliştirdi.",
+
+            "achievements": [
+                "Tek hedefe hassas kullanım",
+                "Silah parçalama",
+                "Sinir noktalarına yönlendirme",
+                "Barut bombasını etkisiz bırakma",
+                "Dallanma başlangıcı"
+            ],
+
+            "remaining_goals": [
+                "Tam yatay kesim",
+                "Daha fazla dal oluşturma",
+                "Hareket halinde kullanım",
+                "Chakra maliyetini azaltma"
+            ]
+        },
+
+
+        {
+            "title": "Kuzey Kervan Eskort Görevi",
+            "status": "Tamamlandı",
+            "importance": 10,
+
+            "rank": "D+/C seviyesi",
+
+            "summary": "Takım 8, Konoha kuzey yolundaki ticaret kervanını haydut saldırısından korudu.",
+
+            "threat": {
+                "enemy_count": "6-8 haydut",
+                "special_threats": [
+                    "Okçular",
+                    "Patlayıcı kullanımı",
+                    "Haydut lideri"
+                ]
+            },
+
+            "ajisai_actions": [
+                "Ses ve koku algısıyla pusuyu fark etti",
+                "İki okçuyu etkisiz hale getirdi",
+                "Gekisen ile patlayıcı kullanımını engelledi",
+                "Haydut liderini canlı yakaladı"
+            ],
+
+            "rewards": {
+                "team_reward": 20000,
+                "ajisai_reward": 5000
+            },
+
+            "current_money": 37100,
+
+            "obtained_evidence": [
+                "Üçüncü kervan notu",
+                "Bölge haritası",
+                "Kimliği belirsiz sembol"
+            ]
+        },
+
+
+        {
+            "title": "Mevcut Durum",
+            "status": "Aktif",
+
+            "importance": 10,
+
+            "summary": "Ajisai Hatake, Konohagakure'de Takım 8 ile birlikte görevler arasında kalan zamanda gelişimini sürdürüyor.",
+
+            "location": "Konohagakure",
+
+            "time": "Sabah",
+
+            "team_status": "Aktif",
+
+            "mission": null
+        }
+
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "name": "Ajisai Hatake",
+    "age": 13,
+    "birthday": "7 Ocak",
+    "rank": "Genin",
+    "village": "Konohagakure",
+
+    "team": "Takım 8",
+    "sensei": "Kurenai Yuhi",
+
+    "appearance": {
+        "height": 162,
+        "weight": 56,
+        "hair": "Siyah",
+        "eyes": "Siyah",
+        "clothing": "Koyu renk kıyafetler, ağzı kapatan bez, yakalı ceket, alın koruyucusu"
+    },
+
+    "personality": {
+        "traits": [
+            "Soğukkanlı",
+            "Disiplinli",
+            "Analitik",
+            "Sessiz"
+        ]
+    },
+
+    "location": "Konohagakure",
+
+    "status": {
+        "time": "Sabah",
+        "health": 100,
+        "chakra": 100,
+        "mission": null,
+        "team_active": true
+    },
+
+    "currency": {
+        "ryo": 37100
+    },
+
+    "stats": {
+        "chakra_level": 65,
+        "chakra_control": 85,
+        "speed": 90,
+        "strength": 55,
+        "stamina": 60,
+        "intelligence": 85,
+        "ninjutsu": 70,
+        "taijutsu": 65,
+        "kenjutsu": 85,
+        "tracking": 90
+    }
+}

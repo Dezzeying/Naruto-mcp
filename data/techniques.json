@@ -1,0 +1,103 @@
+{
+    "techniques": [
+        {
+            "name": "Ikazuchi",
+            "kanji": "雷",
+            "type": "Raiton",
+            "user": "Ajisai Hatake",
+
+            "description": "Chakra'yı yıldırım doğasına dönüştürerek hız, keskinlik ve elektriksel hasar oluşturan kişisel Raiton sistemi.",
+
+            "seal_requirements": {
+                "beginner": [
+                    "Kaplan",
+                    "Tavşan",
+                    "Yılan"
+                ],
+                "advanced": "Mühür ihtiyacı azalabilir.",
+                "mastery": "Mühürsüz kullanım mümkün olabilir."
+            },
+
+            "effects": [
+                "Hız artışı",
+                "Keskin elektriksel saldırılar",
+                "Yakın mesafe avantajı"
+            ],
+
+            "physical_effects": {
+                "normal_use": [
+                    "Avuç içinde sıcaklık",
+                    "Hafif elektrik hissi"
+                ],
+                "overuse": [
+                    "Parmak uyuşması",
+                    "Kas spazmı",
+                    "Chakra dolaşımı bozukluğu"
+                ]
+            },
+
+            "first_attempt": {
+                "result": "Başarısız",
+                "reason": "Chakra dağılımı düzensizdi.",
+                "effects": [
+                    "Elinde yanma hissi",
+                    "Kontrol kaybı"
+                ]
+            },
+
+            "current_level": "Orta"
+        },
+
+
+        {
+            "name": "Ikazuchi: Gekisen",
+            "kanji": "雷撃線",
+            "type": "Raiton",
+            "user": "Ajisai Hatake",
+
+            "parent_technique": "Ikazuchi",
+
+            "description": "Raiton chakrasını ince ve keskin bir elektrik hattına dönüştüren gelişmiş versiyon.",
+
+            "appearance": [
+                "Mavi-beyaz elektrik",
+                "İnce keskin çizgi formu",
+                "Belirli hatta ilerleyen saldırı"
+            ],
+
+            "current_level": "Orta-Gelişmiş",
+
+            "achievements": [
+                "Tek hedefe hassas kullanım",
+                "Silah parçalama",
+                "Sinir noktalarına yönlendirme",
+                "Barut bombasını etkisiz bırakma",
+                "Yatay kesim denemesi",
+                "Dallanma başlangıcı"
+            ],
+
+            "missing_developments": [
+                "Tam yatay kesim",
+                "Daha fazla dal oluşturma",
+                "Hareket halinde kullanım",
+                "Chakra maliyetini azaltma"
+            ],
+
+            "weaknesses": [
+                "Güçlü Raiton savunmaları",
+                "Suiton teknikleri",
+                "Kalın Doton savunmaları",
+                "Çok hızlı rakipler"
+            ],
+
+            "cost": {
+                "single_use": "Orta chakra tüketimi",
+                "repeated_use": [
+                    "Kol kaslarında yanma",
+                    "Parmak kontrolünde düşüş",
+                    "Chakra rezervinde hızlı azalma"
+                ]
+            }
+        }
+    ]
+}

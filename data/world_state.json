@@ -1,0 +1,99 @@
+{
+    "timeline": {
+        "era": "Naruto başlangıcından hemen önce",
+        "current_period": "Naruto ve Sasuke'nin akademiden mezuniyet dönemi",
+        "time_until_naruto_story": "Birkaç hafta"
+    },
+
+
+    "world": {
+        "current_village": "Konohagakure",
+
+        "village_status": {
+            "condition": "Barış dönemi sonrası yeniden yapılanma",
+            "shinobi_activity": "Normal görev yoğunluğu"
+        }
+    },
+
+
+    "main_characters_status": {
+
+        "Naruto Uzumaki": {
+            "age": 12,
+            "status": "Akademi öğrencisi / yeni mezuniyet dönemi",
+            "known": [
+                "Kyuubi taşıyıcısı",
+                "Temel ninja becerilerinde eksikleri var"
+            ]
+        },
+
+
+        "Sasuke Uchiha": {
+            "age": 12,
+            "status": "Akademi sonrası dönem",
+            "known": [
+                "Uchiha klanının hayatta kalan aktif üyesi"
+            ],
+            "sharingan": "Henüz gelişmiş değil"
+        },
+
+
+        "Gaara": {
+            "age": 12,
+            "village": "Sunagakure",
+            "status": "Genin",
+            "known": [
+                "Shukaku jinchuuriki"
+            ]
+        }
+    },
+
+
+    "major_events": {
+
+        "uchiha_massacre": {
+            "status": "Geçmişte gerçekleşti",
+            "time_since_event": "Birkaç yıl"
+        },
+
+
+        "orochimaru": {
+            "status": "Konoha'dan ayrılmış durumda",
+            "activity": [
+                "Yasak teknik araştırmaları",
+                "Deneyler"
+            ],
+            "future_plans": "Bilinmiyor"
+        },
+
+
+        "akatsuki": {
+            "status": "Yükselme aşamasında",
+            "active_hunting": false,
+            "tailed_beast_operations": false
+        }
+    },
+
+
+    "ajisai_knowledge_limit": {
+
+        "does_not_know": [
+            "Naruto'nun gelecekteki gücü",
+            "Sasuke'nin gelecekteki kararları",
+            "Akatsuki'nin gerçek amacı",
+            "Orochimaru'nun büyük planları",
+            "Dördüncü Büyük Ninja Savaşı",
+            "Kaguya gerçeği"
+        ]
+    },
+
+
+    "active_threats": [
+
+        {
+            "name": "Bilinmeyen örgüt bağlantıları",
+            "status": "Araştırma aşamasında"
+        }
+
+    ]
+}

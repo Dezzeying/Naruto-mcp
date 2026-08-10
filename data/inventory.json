@@ -1,0 +1,55 @@
+{
+    "owner": "Ajisai Hatake",
+
+    "items": [
+        {
+            "name": "Tantō",
+            "quantity": 1,
+            "origin": "Aile yadigarı"
+        },
+        {
+            "name": "Shuriken",
+            "quantity": 5
+        },
+        {
+            "name": "Patlayıcı etiket",
+            "quantity": 2
+        },
+        {
+            "name": "Yüz kapatma bezi",
+            "quantity": 1,
+            "purpose": "Görevlerde tanınmamak için"
+        },
+        {
+            "name": "Yakalı ceket",
+            "quantity": 1,
+            "purpose": "Ajisai tarafından satın alındı"
+        },
+        {
+            "name": "Dürbün",
+            "quantity": 1
+        },
+        {
+            "name": "Acil durum erzağı",
+            "quantity": 1
+        },
+        {
+            "name": "Not defteri",
+            "quantity": 1,
+            "purpose": "Görev bilgilerini kaydetmek için"
+        },
+        {
+            "name": "İnce tel",
+            "quantity": 1
+        },
+        {
+            "name": "Kakashi'nin verdiği çakıl taşları",
+            "quantity": 2,
+            "purpose": "Chakra kontrol antrenmanı"
+        },
+        {
+            "name": "Ev anahtarı",
+            "quantity": 1
+        }
+    ]
+}

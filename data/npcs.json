@@ -1,0 +1,159 @@
+{
+    "npcs": [
+        {
+            "name": "Mizuki",
+            "age": 14,
+            "role": "Takım 8 üyesi",
+
+            "appearance": {
+                "hair": "Siyah",
+                "eyes": "Mor"
+            },
+
+            "combat": {
+                "chakra_nature": "Suiton",
+                "style": [
+                    "Alan kontrolü",
+                    "Sabırlı dövüş",
+                    "Rakibi yıpratma"
+                ],
+                "current_level": "Gelişim aşamasında"
+            },
+
+            "relationship_with_ajisai": {
+                "level": 75,
+                "status": "Yakın arkadaşlık + gelişen duygusal bağ"
+            },
+
+            "knows": [
+                "Ajisai yalnız büyüdü",
+                "Anne ve babasını kaybetti",
+                "Çok çalışkan biri",
+                "Güçten çok kontrolü önemsiyor",
+                "Ikazuchi ve Gekisen geliştirdiğini"
+            ],
+
+            "does_not_know": [
+                "Ajisai'nin tüm korkuları",
+                "Gelecek hedefleri",
+                "Hatake soyunun tüm detayları",
+                "Kendisini ne kadar yalnız hissettiği"
+            ],
+
+            "personality": [
+                "Sabırlı",
+                "Dikkatli",
+                "Duygusal bağ kurabilen"
+            ]
+        },
+
+
+        {
+            "name": "Haruto Akimori",
+            "age": 13,
+            "role": "Takım 8 üyesi",
+
+            "clan": "Yok",
+
+            "combat": {
+                "style": [
+                    "Taijutsu",
+                    "Yakın dövüş",
+                    "Güç odaklı saldırılar"
+                ]
+            },
+
+            "relationship_with_ajisai": {
+                "level": 70,
+                "status": "Takım arkadaşlığı + yüksek saygı"
+            },
+
+            "personality": [
+                "Cesur",
+                "Enerjik",
+                "Sabırsız"
+            ],
+
+            "strengths": [
+                "Dayanıklılık",
+                "Cesaret",
+                "Takım arkadaşlarını koruma"
+            ],
+
+            "weaknesses": [
+                "Düşünmeden hareket etmek",
+                "Tuzaklara açık olmak"
+            ],
+
+            "thoughts_about_ajisai": {
+                "past": "Bu adam fazla soğuk ve kendini beğenmiş.",
+                "current": "Benden hızlı olabilir ama beni asla yarı yolda bırakmaz."
+            }
+        },
+
+
+        {
+            "name": "Kurenai Yuhi",
+            "role": "Takım 8 Senseisi",
+
+            "relationship_with_ajisai": {
+                "level": 80,
+                "status": "Sensei - öğrenci ilişkisi, yüksek güven"
+            },
+
+            "teaching_style": [
+                "Doğru karar verme",
+                "İnsan okuma",
+                "Görev sorumluluğu",
+                "Takım çalışması"
+            ],
+
+            "view_of_ajisai": {
+                "strength": [
+                    "Analiz yeteneği",
+                    "Liderlik potansiyeli",
+                    "İz sürme"
+                ],
+
+                "warning": [
+                    "Sadece güçlü bir savaşçı olmamalı",
+                    "İyi bir shinobi olmayı öğrenmeli"
+                ]
+            },
+
+            "team_role": [
+                "Lider",
+                "Mentor",
+                "Dengeleyici"
+            ]
+        },
+
+
+        {
+            "name": "Kakashi Hatake",
+            "role": "Konoha Jōnin",
+
+            "relationship_with_ajisai": {
+                "level": 40,
+                "status": "Uzak akrabalık, karşılıklı tanıma"
+            },
+
+            "connection": {
+                "family": "Hatake ana hattı",
+                "ajisai": "Hatake yan kolu"
+            },
+
+            "knows": [
+                "Ajisai Hatake soyadını taşıyor",
+                "Ailesinin geçmişini genel olarak biliyor olabilir"
+            ],
+
+            "does_not_know": [
+                "Ajisai'nin tüm kişisel düşünceleri",
+                "Geliştirdiği tekniklerin tüm detayları"
+            ],
+
+            "attitude": "Ajisai'nin kendi yolunu bulması gerektiğini düşünür."
+        }
+    ]
+}
